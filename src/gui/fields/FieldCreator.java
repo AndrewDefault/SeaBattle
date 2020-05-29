@@ -374,8 +374,8 @@ public class FieldCreator extends Stage {
                 Point one = shep.getPoints()[0];
                 Point two = shep.getPoints()[shep.getPoints().length - 1];
 
-                Point fin = new Point(one.getX() < two.getX() ? one.getX() : two.getX(),
-                        one.getY() < two.getY() ? one.getY() : two.getY());
+                Point fin = new Point(Math.min(one.getX(), two.getX()),
+                        Math.min(one.getY(), two.getY()));
 
                 grid.add(it, fin.getX(), fin.getY(), it.getDirection() == 1 ? size : 1, it.getDirection() == 2 ? size : 1);
                 pane.getChildren().remove(it);

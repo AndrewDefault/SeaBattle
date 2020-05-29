@@ -13,7 +13,7 @@ public class ComputerPlayer extends Player {
 
     public ComputerPlayer(String name) {
         super(name);
-        getField().placeShips(ShipFactory.getRandomlyPlacedShips());
+        getField().placeShips(ShipFactory.getRandomlyPlacedShips()); // TODO: 15.03.2020 placing ships
     }
 
     @Override

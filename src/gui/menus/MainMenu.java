@@ -99,9 +99,9 @@ public class MainMenu {
     }
 
     private void createVSComputerGame() {
-        HumanPlayer human = new HumanPlayer(inputNickname.getText());
+        HumanPlayer human = new HumanPlayer(inputNickname.getText()); // TODO: 15.03.2020
 
-        new FieldCreator(human).showAndWait();
+        new FieldCreator(human).showAndWait(); // TODO: 15.03.2020 setting humans field
 
         if (human.getCellStatus(new Point(0, 0)) == GameField.CellStatus.SHIP_SHOT) {
             return;

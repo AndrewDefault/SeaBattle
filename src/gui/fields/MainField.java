@@ -211,14 +211,14 @@ public class MainField extends Stage {
 
                 but.setOnAction(event -> {
 
-                    this.game.sendShotToOpponent(new Point(finalJ, finalI));
+                    this.game.sendShotToOpponent(new Point(finalJ, finalI));// TODO: 15.03.2020  way to shoot
                     updateFields();
 
-                    if (winnerIsFound()) return;
+                    if (winnerIsFound()) return; // TODO: 15.03.2020
 
-                    GameField.CellStatus status = this.game.getOpponent().getCellStatus(new Point(finalJ, finalI));
+                    GameField.CellStatus status = this.game.getOpponent().getCellStatus(new Point(finalJ, finalI));// TODO: 15.03.2020
 
-                    if (status != GameField.CellStatus.SHIP_SHOT) {
+                    if (status != GameField.CellStatus.SHIP_SHOT) {// TODO: 15.03.2020  
                         receiveShot();
                     }
                 });
@@ -232,7 +232,7 @@ public class MainField extends Stage {
     }
 
     private void drawShip(GridPane grid, Player player) {
-        Ship[] ships = player.getField().getShips();
+        Ship[] ships = player.getField().getShips();// TODO: 15.03.2020  ship place
 
         for (Ship shep : ships) {
             int size = shep.getSize();
@@ -245,8 +245,8 @@ public class MainField extends Stage {
             Point one = shep.getPoints()[0];
             Point two = shep.getPoints()[shep.getPoints().length - 1];
 
-            Point fin = new Point(one.getX() < two.getX() ? one.getX() : two.getX(),
-                    one.getY() < two.getY() ? one.getY() : two.getY());
+            Point fin = new Point(Math.min(one.getX(), two.getX()),
+                    Math.min(one.getY(), two.getY()));
 
             grid.add(it, fin.getX(), fin.getY(), it.getDirection() == 1 ? size : 1, it.getDirection() == 2 ? size : 1);
         }
